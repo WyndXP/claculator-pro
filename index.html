@@ -8,11 +8,12 @@
 </head>
 <body>
     <p>claculator 0.2</p>
-    <p id="last">Hello,im the claculator,What is your math eqation???????? pls i ned numbers</p>
+    <p>Hello,im the claculator,What is your math eqation???????? pls i ned numbers</p>
     <form id="form">
         <input placeholder="eqation">
-        <input type="submit" value="math">
+        <input type="submit" value="maths">
     </form>
+    <span id="last"></span>
 </body>
 <script>
     var form = document.getElementById('form')
@@ -20,9 +21,11 @@
     form.addEventListener('submit', function(e){
         e.preventDefault()
         var eq = e.target[0].value
-        last.innerText = math.evaluate(eq)
+        try {
+            last.innerText = math.evaluate(eq)
+        }catch(e){
+            last.innerText = 'err: nono'
+        }
     });
-
-
 </script>
 </html>
