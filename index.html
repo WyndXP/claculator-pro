@@ -23,7 +23,12 @@
         e.preventDefault()
         var eq = e.target[0].value
         try {
-            last.innerText = math.evaluate(eq)
+            let thing = math.evaluate(eq);
+            if (typeof thing === 'function'){
+                last.innerText = thing
+            } else {
+                last.innerText = thing()
+            }
         }catch(e){
             last.innerText = 'err: nono'
         }
