@@ -24,7 +24,7 @@
         var eq = e.target[0].value
         try {
             let thing = math.evaluate(eq);
-            if (typeof thing === 'function'){
+            if (typeof thing !== 'function'){
                 last.innerText = thing
             } else {
                 last.innerText = thing()
